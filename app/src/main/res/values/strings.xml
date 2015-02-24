@@ -9,5 +9,20 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+
+    <string name="click_to_begin">CLICK TO BEGIN</string>
+    <string name="welcome">Welcome,</string>
+    <string name="welcome_search_title">Focus on Searching Books</string>
+    <string name="welcome_search_content">Search your favorite books and share them with your close friends</string>
+    <string name="welcome_review_title">Write Review</string>
+    <string name="welcome_review_content">Share your option about a specific book with others by writing a review</string>
+    <string name="welcome_rate_title">Rate</string>
+    <string name="welcome_rate_content">Rate the books you like and help others to find easily top liked books</string>
+    <string name="welcome_share_title">Share with others</string>
+    <string name="welcome_share_content">Sharing is caring, share the books you like with your friends</string>
+    <string name="welcome_wait">Please wait...</string>
 
 </resources>

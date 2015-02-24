@@ -4,24 +4,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/start1"
-    tools:context=".MainActivity$PlaceholderFragment">
+    android:background="@drawable/welcome3"
+
+    tools:context="com.infiniteloop.booknetwork.views.WelcomeActivity$PlaceholderFragment">
 
     <TextView android:id="@+id/section_label" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/fragment_main_TextView_begin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:padding="15dp"
-        android:textStyle="bold"
-        android:textSize="17sp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:text="@string/click_to_begin"/>
-
 
 </RelativeLayout>

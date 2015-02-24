@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+
+
+    tools:context="com.infiniteloop.booknetwork.views.WelcomeActivity$PlaceholderFragment">
+
+    <TextView android:id="@+id/fragment_welcome_TextView_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:layout_centerInParent="true"
+        android:text="Welcome,"
+        android:textColor="@color/app_white"/>
+
+    <TextView android:id="@+id/fragment_welcome_TextView_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26sp"
+        android:visibility="gone"
+        android:layout_below="@id/fragment_welcome_TextView_title1"
+        android:layout_centerHorizontal="true"
+        android:text="Kristo Godari"
+        android:textColor="@color/app_white"/>
+
+    <TextView android:id="@+id/fragment_welcome_TextView_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:typeface="sans"
+        android:layout_below="@id/fragment_welcome_TextView_title2"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="@color/app_white_with_alpha"/>
+
+    <ImageView android:id="@+id/fragment_welcome_ImageViewimage"
+        android:layout_width="wrap_content"
+        android:src="@drawable/search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@id/fragment_welcome_TextView_title1"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/fragment_welcome_LinearLayout_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/fragment_welcome_TextView_content"
+        android:orientation="horizontal" >
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/welcome_wait"
+            android:textColor="@color/app_white"/>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

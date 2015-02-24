@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/welcome_backgroundt"
+    android:layout_height="match_parent">
+
+
+    <com.infiniteloop.booknetwork.customViews.CustomViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.infiniteloop.booknetwork.views.WelcomeActivity" />
+
+    <com.infiniteloop.booknetwork.customViews.CustomViewPagerDots
+        android:id="@+id/activity_welcome_custom_view_pager_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
