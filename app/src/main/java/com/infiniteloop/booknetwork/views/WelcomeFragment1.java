@@ -63,6 +63,11 @@ public class WelcomeFragment1  extends Fragment {
                     mTextViewContent.setText(getResources().getString(R.string.welcome_share_content));
                     mLinearLayoutWaitContainer.setVisibility(View.VISIBLE);
                     break;
+                case 5:
+                    mImageViewImage.setVisibility(View.GONE);
+                    mTextViewTitle1.setVisibility(View.GONE);
+                    mTextViewTitle2.setVisibility(View.GONE);
+                    mTextViewContent.setVisibility(View.GONE);
 
             }
         }

@@ -1,6 +1,7 @@
 package com.infiniteloop.booknetwork;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.infiniteloop.booknetwork.views.WelcomeActivity;
 import com.infiniteloop.booknetwork.views.WelcomeFragment0;
@@ -28,34 +30,63 @@ public class MainActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
+
+    DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
 
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        // Inflate the "decor.xml"
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        drawer = (DrawerLayout) inflater.inflate(R.layout.decor, null); // "null" is important.
 
+        // HACK: "steal" the first child of decor view
+        ViewGroup decor = (ViewGroup) getWindow().getDecorView();
+        View child = decor.getChildAt(0);
+        decor.removeView(child);
+        FrameLayout container = (FrameLayout) drawer.findViewById(R.id.container); // This is the container we defined just now.
+        container.addView(child);
+
+        // Make the drawer replace the first child
+        decor.addView(drawer);
+
+
+        drawer.bringToFront();
+
+
+        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.navigation);
+//        mTitle = getTitle();
+//
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction() .replace(R.id.container, new WelcomeFragment0()) .commit();
+        fragmentManager.beginTransaction() .replace(getContentIdResource(), new WelcomeFragment0()) .commit();
 
         getSupportActionBar().hide();
 
-
     }
+
+    private int getContentIdResource() { return getResources().getIdentifier("content", "id", "android"); }
+
+    boolean fistsTime = true;
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+
+        System.out.println("posaopsaosp " + position);
+
+        if(!fistsTime) {
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+            fistsTime = false;
+        }
+
     }
 
     public void onSectionAttached(int number) {
@@ -82,11 +113,11 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            getMenuInflater().inflate(R.menu.main, menu);
-            restoreActionBar();
-            return true;
-        }
+//        if (!mNavigationDrawerFragment.isDrawerOpen()) {
+//            getMenuInflater().inflate(R.menu.main, menu);
+//            restoreActionBar();
+//            return true;
+//        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -105,6 +136,11 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onClickToBeginButtonClicked() {
 
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.container, PlaceholderFragment.newInstance(1))
+//                .commit();
+
         startActivityForResult(new Intent(this, WelcomeActivity.class), WELCOME_ACTIVITY_REQUEST_CODE);
     }
 
@@ -116,10 +152,11 @@ public class MainActivity extends ActionBarActivity
 
             getSupportActionBar().show();
 
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+
             // Set up the drawer.
-            mNavigationDrawerFragment.setUp( R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
+            mNavigationDrawerFragment.setUp( R.id.navigation, (DrawerLayout) findViewById(R.id.drawer_layout));
+            getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, PlaceholderFragment.newInstance(1))
                     .commit();
 

@@ -40,6 +40,7 @@
     <ImageView android:id="@+id/fragment_welcome_ImageViewimage"
         android:layout_width="wrap_content"
         android:src="@drawable/search"
+
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="25dp"
         android:layout_above="@id/fragment_welcome_TextView_title1"

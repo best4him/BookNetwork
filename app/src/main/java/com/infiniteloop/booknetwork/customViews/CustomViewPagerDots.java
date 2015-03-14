@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 
 import com.infiniteloop.booknetwork.R;
 import com.infiniteloop.booknetwork.utils.ViewUtils;
+import com.infiniteloop.booknetwork.views.WelcomeActivity;
 
 import java.util.ArrayList;
 
@@ -42,7 +43,7 @@ public class CustomViewPagerDots extends LinearLayout{
 
     public void setPage(int pageNumber) {
 
-        if(mLastPageDot != null) {
+        if(mLastPageDot != null && pageNumber < WelcomeActivity.NUMBER_OF_PAGES -1) {
             mLastPageDot.setDotImageRessource(R.drawable.shape_dot);
             mLastPageDot = mDots.get(pageNumber);
             mLastPageDot.setDotImageRessource(R.drawable.shape_dot_black);

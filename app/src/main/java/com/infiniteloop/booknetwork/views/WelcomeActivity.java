@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AlphaAnimation;
+import android.widget.RelativeLayout;
 
 import com.infiniteloop.booknetwork.R;
 import com.infiniteloop.booknetwork.customViews.CustomViewPager;
@@ -18,7 +20,7 @@ import java.util.Locale;
 
 public class WelcomeActivity extends FragmentActivity implements ViewPager.OnPageChangeListener{
 
-    private static final int NUMBER_OF_PAGES = 5;
+    public static final int NUMBER_OF_PAGES = 6;
 
     SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -71,6 +73,15 @@ public class WelcomeActivity extends FragmentActivity implements ViewPager.OnPag
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+        if(position == NUMBER_OF_PAGES-2) {
+
+
+            float alpha = 1 -  (float)positionOffsetPixels/1080;
+            AlphaAnimation alphaUp = new AlphaAnimation(alpha, alpha);
+            alphaUp.setFillAfter(true);
+            ((RelativeLayout) findViewById(R.id.activity_welcome_container)).startAnimation(alphaUp);
+
+        }
     }
 
     @Override
@@ -80,23 +91,23 @@ public class WelcomeActivity extends FragmentActivity implements ViewPager.OnPag
 
         if(position == NUMBER_OF_PAGES-1) {
 
-            swipeable = false;
-
+//            swipeable = false;
+//
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
 
                     WelcomeActivity.this.finish();
                 }
-            }, 3000);
-
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-
-                    mViewPager.setSwipeable(false);
-                }
-            }, 270);
+            }, 400);
+//
+//            new Handler().postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//
+//                    mViewPager.setSwipeable(false);
+//                }
+//            }, 270);
         }
     }
 
