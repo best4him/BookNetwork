@@ -24,5 +24,8 @@
     <string name="welcome_share_title">Share with others</string>
     <string name="welcome_share_content">Sharing is caring, share the books you like with your friends</string>
     <string name="welcome_wait">Please wait...</string>
+    <string name="swipe_to_begin">Swipe to begin!</string>
+    <string name="tap_to_retry">Tap to retry!</string>
+    <string name="no_internet_connection">No internet connection detected</string>
 
 </resources>

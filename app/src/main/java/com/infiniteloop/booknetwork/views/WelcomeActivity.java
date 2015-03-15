@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.widget.RelativeLayout;
 
@@ -154,6 +155,11 @@ public class WelcomeActivity extends FragmentActivity implements ViewPager.OnPag
             }
             return null;
         }
+    }
+
+    public void skip(View v) {
+
+        finish();
     }
 
     /**

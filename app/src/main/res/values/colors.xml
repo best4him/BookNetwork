@@ -4,5 +4,8 @@
     <color name="app_white">#ECF0F1</color>
     <color name="app_white_with_alpha">#99ECF0F1</color>
     <color name="app_blue_1">#3498DB</color>
+    <color name="app_blue_2">#2980B9</color>
+    <color name="app_blue_3">#2C3E50</color>
+    <color name="app_red">#E74C3C</color>
 
 </resources>

@@ -54,6 +54,7 @@ public class WelcomeFragment0  extends Fragment implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.fragment_main_TextView_begin:
                 mListener.onClickToBeginButtonClicked();
+                mTextViewBegin.setVisibility(View.GONE);
                 break;
 
         }

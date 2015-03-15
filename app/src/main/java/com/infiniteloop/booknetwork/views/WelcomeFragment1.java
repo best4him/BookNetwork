@@ -60,8 +60,9 @@ public class WelcomeFragment1  extends Fragment {
                 case 4:
                     mImageViewImage.setImageResource(R.drawable.share);
                     mTextViewTitle1.setText(getResources().getString(R.string.welcome_share_title));
+                    mTextViewTitle2.setText(getResources().getString(R.string.swipe_to_begin));
                     mTextViewContent.setText(getResources().getString(R.string.welcome_share_content));
-                    mLinearLayoutWaitContainer.setVisibility(View.VISIBLE);
+//                    mLinearLayoutWaitContainer.setVisibility(View.VISIBLE);
                     break;
                 case 5:
                     mImageViewImage.setVisibility(View.GONE);
