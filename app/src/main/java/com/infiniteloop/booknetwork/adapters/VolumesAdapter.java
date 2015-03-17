@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -50,8 +51,10 @@ public class VolumesAdapter extends BaseAdapter {
             VolumeViewHolder viewHolder = new VolumeViewHolder();
 
             viewHolder.title = (TextView) convertView.findViewById(R.id.cell_volumeTitle);
-            viewHolder.subtitle = (TextView) convertView.findViewById(R.id.cell_volumeSubTitle);
+            viewHolder.author = (TextView) convertView.findViewById(R.id.cell_volumeAuthor);
             viewHolder.image = (ImageView) convertView.findViewById(R.id.cell_volumeImageView);
+            viewHolder.ratingBar = (RatingBar) convertView.findViewById(R.id.cell_volumeRatingBarratingBar);
+            viewHolder.ratingCount = (TextView) convertView.findViewById(R.id.cell_ratingCount);
 
             convertView.setTag(viewHolder);
 
@@ -60,8 +63,15 @@ public class VolumesAdapter extends BaseAdapter {
         VolumeViewHolder viewHolder = (VolumeViewHolder)convertView.getTag();
 
         viewHolder.title.setText(getItem(i).getVolumeInfo().getTitle());
-        viewHolder.title.setText(getItem(i).getVolumeInfo().getSubtitle());
+        if(getItem(i).getVolumeInfo().getAuthors() != null)viewHolder.author.setText("by " + getItem(i).getVolumeInfo().getAuthors().get(0));
         if(getItem(i).getVolumeInfo().getImageLinks() != null)Picasso.with(mContext).load(getItem(i).getVolumeInfo().getImageLinks().getThumbnail()).into(viewHolder.image);
+        if(getItem(i).getVolumeInfo().getRatingsCount() != null)viewHolder.ratingCount.setText(getItem(i).getVolumeInfo().getRatingsCount().toString());
+        try{
+            if(getItem(i).getVolumeInfo().getAverageRating()!= null) viewHolder.ratingBar.setRating(Float.parseFloat(getItem(i).getVolumeInfo().getAverageRating().toString()));
+        }catch(Exception e) {
+
+        }
+
 
         return convertView;
     }
@@ -80,7 +90,9 @@ public class VolumesAdapter extends BaseAdapter {
     public class VolumeViewHolder {
 
         TextView title;
-        TextView subtitle;
+        TextView author;
         ImageView image;
+        RatingBar ratingBar;
+        TextView ratingCount;
     }
 }

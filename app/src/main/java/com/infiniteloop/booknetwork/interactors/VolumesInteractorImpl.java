@@ -98,7 +98,7 @@ public class VolumesInteractorImpl implements VolumesInteractor {
 
                             volumeInfo.setTitle(volumeInfoJson.optString("title"));
                             volumeInfo.setSubtitle(volumeInfoJson.optString("subtitle"));
-                            JSONArray authorsJson = volumeJson.optJSONArray("authors");
+                            JSONArray authorsJson = volumeInfoJson.optJSONArray("authors");
                             if(authorsJson != null) {
 
                                 ArrayList<String> authors = new ArrayList<String>();
@@ -113,16 +113,15 @@ public class VolumesInteractorImpl implements VolumesInteractor {
                             volumeInfo.setPublishedDate(volumeInfoJson.optString("publishedDate"));
                             volumeInfo.setDescription(volumeInfoJson.optString("description"));
 
+                            volumeInfo.setRatingsCount(volumeInfoJson.optInt("ratingsCount"));
+                            volumeInfo.setAverageRating(volumeInfoJson.optDouble("averageRating"));
+
                             JSONObject imageLinksJson = volumeInfoJson.optJSONObject("imageLinks");
 
                             ImageLinks imageLinks = new ImageLinks();
 
-                            System.out.println("ndjakdasdasd ");
-
                             if(imageLinksJson != null) {
-                                System.out.println("ndjakdasdasd1 ");
                                 imageLinks.setSmallThumbnail(imageLinksJson.optString("smallThumbnail"));
-                                System.out.println("ndjakdasdasd1 " + imageLinksJson.optString("thumbnail"));
                                 imageLinks.setThumbnail(imageLinksJson.optString("thumbnail"));
                             }
 

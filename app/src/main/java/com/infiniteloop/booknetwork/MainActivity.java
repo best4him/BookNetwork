@@ -80,7 +80,7 @@ public class MainActivity extends ActionBarActivity
                 case 0:
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     fragmentManager.beginTransaction()
-                            .replace(R.id.container, new VolumesViewFragment())
+                            .replace(getContentIdResource(), new VolumesViewFragment())
                             .commit();
 
                     break;
@@ -117,11 +117,11 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-//        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-//            getMenuInflater().inflate(R.menu.main, menu);
-//            restoreActionBar();
-//            return true;
-//        }
+        if (!mNavigationDrawerFragment.isDrawerOpen()) {
+            getMenuInflater().inflate(R.menu.main, menu);
+            restoreActionBar();
+            return true;
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -162,7 +162,7 @@ public class MainActivity extends ActionBarActivity
             mNavigationDrawerFragment.setUp( R.id.navigation, (DrawerLayout) findViewById(R.id.drawer_layout));
 //
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new VolumesViewFragment())
+                    .replace(getContentIdResource(), new VolumesViewFragment())
                     .commit();
 
 

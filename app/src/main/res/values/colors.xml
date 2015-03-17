@@ -6,6 +6,7 @@
     <color name="app_blue_1">#3498DB</color>
     <color name="app_blue_2">#2980B9</color>
     <color name="app_blue_3">#2C3E50</color>
+    <color name="app_gray_with_40_alpha">#55cdcdcd</color>
     <color name="app_red">#E74C3C</color>
 
 </resources>

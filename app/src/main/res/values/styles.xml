@@ -1,18 +1,27 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme"  parent="@style/Theme.AppCompat.Light">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
+
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:windowBackground">@color/app_blue_1</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+
     </style>
 
     <style name="WelcomeTheme" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
 
     </style>
 
-    <!-- ActionBar styles -->
     <style name="MyActionBar"
-        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/welcome4</item>
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/action_bar_background</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/action_bar_background</item>
     </style>
 
 </resources>

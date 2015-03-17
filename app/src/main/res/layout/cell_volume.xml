@@ -1,33 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="155dp"
-        android:id="@+id/cell_volumeImageView" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/cell_volumeImageView"
-        android:layout_alignTop="@id/cell_volumeImageView"
-        android:layout_toRightOf="@id/cell_volumeImageView">
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
 
-        <TextView
-            android:id="@+id/cell_volumeTitle"
-            android:layout_width="wrap_content"
+        android:background="@drawable/cell_with_border_background"
+        android:padding="4dp">
+
+        <ImageView
+            android:id="@+id/cell_volumeImageView"
+            android:layout_width="100dp"
+            android:scaleType="centerCrop"
+            android:layout_height="145dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="mdkasd"
-            android:textSize="16sp"/>
-        <TextView
-            android:id="@+id/cell_volumeSubTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="dasd"
-            android:layout_below="@id/cell_volumeTitle"
-            android:textSize="13sp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_alignBottom="@id/cell_volumeImageView"
+            android:layout_alignTop="@id/cell_volumeImageView"
+            android:layout_toRightOf="@id/cell_volumeImageView"
+            android:id="@+id/relativeLayout">
+
+            <TextView
+                android:id="@+id/cell_volumeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/cell_volumeAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cell_volumeTitle"
+                android:textSize="13sp"
+                android:textStyle="italic" />
+
+
+            <RatingBar
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cell_volumeRatingBarratingBar"
+                android:scaleX="0.35"
+                android:scaleY="0.35"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/cell_volumeAuthor"/>
+
+            <TextView
+                android:id="@+id/cell_ratingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(123)"
+                android:visibility="gone"
+                android:layout_alignBottom="@id/cell_volumeRatingBarratingBar"
+                android:layout_below="@id/cell_volumeTitle"
+                android:textSize="13sp" />
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
